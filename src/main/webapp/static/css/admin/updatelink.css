@@ -1,0 +1,32 @@
+body{
+	margin:0;
+	padding: 0;
+	background: #ebebeb;
+}
+table{
+	width: 400px;
+	height:220px;
+	margin:0 auto;
+	margin-top: 10%;
+}
+td{
+	text-align:center;
+	font-size:18px;
+}
+.mm{
+	width:60px;
+	height:35px;
+	background: #2896ef;
+	color: white;
+	margin-left:20%;
+	border-radius: 8px;
+}
+input{
+	width:300px;
+	height:30px;
+	margin-left:10px;
+	border-radius:5px; 
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px; 
+	border:1px solid #ccc;
+}

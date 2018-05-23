@@ -1,0 +1,198 @@
+.newscontent{
+    margin-bottom: 50px;
+}
+.newscontent .newscontentUl{
+    list-style: none;
+}
+.newscontent .newscontentUl>li{
+    list-style: none;
+    height: 40px;
+    line-height: 20px;
+}
+.newscontent .newscontentUl>li>a{
+    color:rgb(48,64,91);
+    text-decoration: none;
+    line-height: 40px;
+    font-size: 14px;
+    transition:margin-left 1s;
+	-webkit-transition:margin-left 1s; /* Safari */
+}
+.newscontent .newscontentUl>li>span{
+    font-size:12px;
+    float: right;
+    line-height: 40px;
+
+}
+.paging1{
+    margin-top:20px;
+    margin-bottom: 40px;
+    width: 100%;
+    /*text-align: center;*/
+}
+
+.paging1 .pagingUl{
+    /*margin: 0 auto;*/
+    list-style: none;
+    font-size: 0;
+    float: left;
+}
+
+.paging1 .pagingUl>li{
+    display: inline-block;
+    font-size: 0;
+    list-style: none;
+    border: 1px solid rgba(48,64,91,.3);
+    width: 40px;
+    height: 30px;
+    text-align: center;
+}
+.paging1 .pagingUl>li>a{
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    display: block;
+    line-height: 30px;
+    text-decoration: none;
+    color:#130c16;
+}
+.paging1 .pagingUl>li>a:hover{
+    background-color: rgb(227,227,227);
+}
+.active2{
+    background-color: rgb(227,227,227);
+}
+.pagingRight{
+    float: right;
+    margin-right: 20px;
+}
+.pagingRight>span{
+    letter-spacing: 1px;
+}
+.location a:hover{
+    color:blueviolet;
+}
+.selectBox{
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 30px;
+    border:1px solid rgba(48,64,91,.5);
+}
+
+.selectBox .selectBoxUl{
+    position: absolute;
+    top:-300px;
+    width: 40px;
+    /* height: 300px; */
+    left:-1px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    list-style: none;
+    display: none;
+    border: 1px solid rgba(48,64,91,.5);
+    background-color: #fff;
+    cursor: pointer;
+}
+.selectBox>span{
+    line-height: 30px;
+    display: inline-block;
+    padding-right:5px;
+    width: 100%;
+    text-align: center;
+}
+.selectBox .selectBoxUl>li{
+    list-style: none;
+}
+.newscontentUl>li>a:hover{
+    color:red;
+    margin-left:8px;
+    overflow:hidden;
+}
+.selectBox .selectBoxUl>li>a{
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    padding:3px 10px;
+}
+.selectBox .selectBoxUl>li>a:hover{
+    background-color: rgb(227,227,227);
+}
+.location{
+    float: left;
+    line-height: 30px;
+}
+.location1{
+    float: right;
+}
+.centersearch{
+    width: 100%;
+/*     background: red; */
+}
+input{
+    background:none;
+    outline:none;
+    border:0px;
+}
+.searchbox{
+    width: 250px;
+    position: relative;
+}
+.prompt{
+	position:absolute;
+	top:30px;	
+	width:190px;
+	border:1px solid purple;
+	border-top:none;
+	border-bottom-color:white;
+	display:none;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+.prompt>a{
+	text-decoration:none;
+	color:black;
+	line-height: 25px;
+	padding-left:5px;
+}
+.searchbox>form{
+    width:250px;
+    font-size: 0px;
+}
+.searchboxinput{
+    height:30px;
+    position: absolute;
+    padding-left:5px;
+    line-height:30px\9 !important;
+    width:190px;
+    border:1.5px solid purple;
+    border-right:0;
+    font-size: 12px;
+    right:60px;
+    display: none;
+}
+.searchboxbtn{
+    position: absolute;
+    right:0;
+    width:60px;
+    height:30px;
+/*     border:2px solid #FF8C00; */
+/* 	border:2px solid #264169; */
+	border:2px solid purple;
+    background-color:purple;
+    font-size: 10px;
+}
+.searchbox>form>span{
+    position: absolute;
+    right:0;
+    width:60px;
+    height:34px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    color:#FFF;
+    cursor: pointer;
+}
+
+

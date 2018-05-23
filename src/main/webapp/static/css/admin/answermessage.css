@@ -1,0 +1,48 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #ebebeb !important;
+}
+.all{
+/* 	width:1900px; */
+/* 	margin:0 auto; */
+	overflow: hidden;
+}
+.content{
+	width: 40%;
+	margin-left: 25%;
+}
+
+table {
+	width: 600px;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 10%;
+	border-collapse: collapse;
+}
+.leftTd{
+	width:130px!important;
+	height: 40px!important;
+}
+tr td{
+	height:40px!important;
+	line-height:40px!important;	
+}
+.text{
+	width: 550px; 
+	height: 400px;
+}
+#editor{
+	 width: 550px; 
+	 height: 250px;
+}
+.btn{
+	width:60px;
+	height:30px;
+	line-height:30px;
+	border-radius:4px;
+	margin-top:20px;
+	margin-left:250px;
+	background:#418bfa;
+	color:white;
+}

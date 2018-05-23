@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.torrow.school.dao.TbResourceDao">
+  <resultMap id="BaseResultMap" type="com.torrow.school.entity.TbResource">
+    <id column="re_id" jdbcType="INTEGER" property="reId" />
+    <result column="ca_id" jdbcType="INTEGER" property="caId" />
+    <result column="ca_name" jdbcType="VARCHAR" property="caName" />
+    <result column="re_title" jdbcType="VARCHAR" property="reTitle" />
+    <result column="re_issuer" jdbcType="VARCHAR" property="reIssuer" />
+    <result column="re_issuingdate" jdbcType="VARCHAR" property="reIssuingdate" />
+    <result column="spare" jdbcType="VARCHAR" property="spare" />
+    <result column="re_content" jdbcType="LONGVARCHAR" property="reContent" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_resource
+    where re_id = #{reId,jdbcType=INTEGER}
+  </delete>
+  
+  	<!--根据reTitle来查询  -->
+  	<select id="selectByTitle"   parameterType="java.lang.String"  resultMap="BaseResultMap">
+		select * from tb_resource where re_title = #{reTitle}
+	</select>
+	
+  	<!--根据reContent来查询 -->
+  	<select id="selectByContent"   parameterType="java.lang.String"  resultMap="BaseResultMap">
+		select * from tb_resource where re_content = #{reContent}
+	</select>
+	
+  <insert id="insert" parameterType="com.torrow.school.entity.TbResource">
+    insert into tb_resource (ca_id, ca_name, 
+      re_title, re_issuer, re_issuingdate, 
+      spare, re_content)
+    values ( #{caId,jdbcType=INTEGER}, #{caName,jdbcType=VARCHAR}, 
+      #{reTitle,jdbcType=VARCHAR}, #{reIssuer,jdbcType=VARCHAR}, #{reIssuingdate,jdbcType=VARCHAR}, 
+      #{spare,jdbcType=VARCHAR}, #{reContent,jdbcType=LONGVARCHAR})
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.torrow.school.entity.TbResource">
+    update tb_resource
+    set ca_id = #{caId,jdbcType=INTEGER},
+      ca_name = #{caName,jdbcType=VARCHAR},
+      re_title = #{reTitle,jdbcType=VARCHAR},
+      re_issuer = #{reIssuer,jdbcType=VARCHAR},
+      re_issuingdate = #{reIssuingdate,jdbcType=VARCHAR},
+      spare = #{spare,jdbcType=VARCHAR},
+      re_content = #{reContent,jdbcType=LONGVARCHAR}
+    where re_id = #{reId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select re_id, ca_id, ca_name, re_title, re_issuer, re_issuingdate, spare, re_content
+    from tb_resource
+    where re_id = #{reId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByCaId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select re_id, ca_id, ca_name, re_title, re_issuer, re_issuingdate, spare, re_content
+    from tb_resource
+    where ca_id = #{caId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+    select re_id, ca_id, ca_name, re_title, re_issuer, re_issuingdate, spare, re_content
+    from tb_resource
+  </select>
+  
+  	<!-- 根据分页数据start 和size查询数据 -->
+	<select id="findByPage" parameterType="Map" resultMap="BaseResultMap">
+		select * from tb_resource
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+
+	<!-- 查询资源类记录总数 -->
+	<select id="selectCount" resultType="int">
+		select count(*) from tb_resource
+	</select>
+	
+	<select id="selectListByCaId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+	    select * from tb_resource where ca_id = #{caId,jdbcType=INTEGER}
+  </select>
+	
+	<!--这个是为了模糊查询  -->
+	<select id="queryAll" 	parameterType="java.lang.String"  resultMap="BaseResultMap">
+	    select re_id, ca_id, ca_name, re_title, re_issuer, re_issuingdate, spare, re_content
+	    from tb_resource where true 
+	    <if test="name!=null">
+	     	and re_title like CONCAT(CONCAT('%', #{name}), '%')
+		</if>
+		<if test="name!=null">
+	     	or re_issuer like CONCAT(CONCAT('%', #{name}), '%')
+		</if>
+		<if test="name!=null">
+	     	or re_issuingdate like CONCAT(CONCAT('%', #{name}), '%')
+		</if>
+    </select> 
+    
+    <!--这个是为了根据图片caName来查询轮播图片的信息  -->
+	<select id="selectBlur" parameterType="java.lang.String"  resultMap="BaseResultMap">
+	    select re_id, ca_id, ca_name, re_title, re_issuer, re_issuingdate, spare, re_content
+	    from tb_resource where true 
+	    <if test="inquiry!=null">
+	     	and ca_name like CONCAT(CONCAT('%', #{inquiry}), '%')
+		</if>
+    </select> 
+</mapper>

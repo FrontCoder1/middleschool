@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1000">
+<title>郑州一二二中学</title>
+</head>
+<body>
+<div th:fragment="header">
+ <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}" type="text/css"> 
+ <link rel="stylesheet" th:href="@{/static/css/visitor/publicstyle.css}" type="text/css">
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/visitor/carousel.js}"></script>
+<script th:src="@{/static/js/visitor/notice.js}"></script>
+<div class="topmax">
+	<div class="container header">
+		<div class="logo">
+			<img th:src="@{/static/images/visitor/title.png}" alt="加载中">
+		</div>
+		<div class="headerRight">
+			<p th:if="${midExam != '--'}">
+				距离期中<span th:text="${midExam}"></span>天
+			</p>
+			<p th:if="${finalExam != '--' and midExam=='--'}">
+				距离期末<span th:text="${finalExam}"></span>天
+			</p>
+			<p th:if="${catchingExam != '--'}">
+				距离中招<span th:text="${catchingExam}"></span>天
+			</p>
+			<p class="hidden-xs">
+				今天<span id="todayTime">--年--月--日</span>
+			</p>
+		</div>
+	</div>
+	</div>
+	<!--导航条-->
+	<div class="navBox">
+		<ul class="navUl">
+			<li class="navLi" style="border-left:#626d8c 1px dotted"><a th:href="@{/index}">首页</a></li>
+			<li class="navLi">
+                <a href="#">学校概况</a>
+                <ul class="navSecondUl">
+                    <li th:each="general,generals:${generals}">
+                    	<a th:href="@{/visitorGN/viewGeneral?(gId= ${general.caId})}" th:text="${general.caName}">学校概况</a>
+                    </li>
+                </ul>
+            </li>
+			<li class="navLi"><a href="#">校园新闻</a>
+				<ul class="navSecondUl">
+					<li th:each="news,newsStart:${schoolNews}"><a
+						th:href="@{/visitorGN/viewNews?(nId= ${news.caId})}"
+						th:text="${news.caName}" >学校新闻</a></li>
+				</ul></li>
+			<li class="navLi"><a href="#">教育教研</a>
+				<ul class="navSecondUl">
+					<li th:each="education,educations:${educations}"><a
+						th:href="@{/visitorNEL/viewEducation?(rId= ${education.caId})}"
+						th:text="${education.caName}" >教育教研</a></li>
+				</ul></li>
+			<li class="navLi"><a href="#">校园文学</a>
+				<ul class="navSecondUl">
+					<li th:each="literature,literatureS:${literature}"><a
+						th:href="@{/visitorNEL/viewLiterature?(cId= ${literature.caId})}"
+						th:text="${literature.caName}" >校园文学</a></li>
+				</ul></li>
+			<li class="navLi"><a href="#">教师风采</a>
+				<ul class="navSecondUl">
+					<li><a
+						th:href="@{/visitorNEL/viewTeacherIntroActieve?ask=intro}"
+						>教师介绍</a></li>
+					<li><a
+						th:href="@{/visitorNEL/viewTeacherIntroActieve?ask=achieve}"
+						>教师成果</a></li>
+				</ul></li>
+			<li class="navLi"><a th:href="@{http://jingao.site:8080/wordpress}" target="_blank" >校园博客</a>
+			</li>
+			<li class="navLi"><a th:href="@{http://jingao.site:8080/bbs}" target="_blank">校园论坛</a></li>
+			<li class="navLi"><a th:href="@{/login}" target="_blank">资源下载</a></li>
+		</ul>
+	</div>
+	<script th:src="@{/static/js/jquery.min.js}"></script>
+	<script th:inline="javascript">
+		var today = new Date(); //获得今天时间
+		var todayTime = today.getFullYear() + "年" + today.getMonth() + "月"
+				+ today.getDate() + "日";
+		$('#todayTime').text(todayTime);
+	</script>
+</div>
+	
+	<div class="footer" th:fragment="footer">
+	<link rel="stylesheet" th:href="@{/static/css/visitor/backtop.css}" type="text/css">
+        <div class="footerBox">
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 footerBox1"><img th:src="@{/static/images/visitor/bottomlogo.png}" alt=""></div>
+                <div class="col-sm-3 col-xs-3 footerBox1" th:if="${phone!=null || email!=null || address !=null}">
+                    <h3>联系我们:</h3>
+                    <p th:if="${phone!=null}">
+                    	电话：<span th:text="${phone.reContent}">电话号码</span>
+                    </p>
+                    <p th:if="${email!=null}">
+                    	邮箱：<span th:text="${email.reContent}">邮箱</span>
+                    </p>
+                    <p th:if="${address}">
+                    	地址：<span th:text="${address.reContent}">地址</span>
+                    </p>
+                </div>
+                <div class="col-sm-3 col-xs-3 footerBox1">
+                    <h3>友情链接:</h3>
+                    <p th:each="resource,resourceS:${linksList}">
+                    	<a th:href="@{${resource.reContent}}" th:text="${resource.reTitle}"></a>
+                    </p>
+                </div>
+                <div class="col-sm-3 col-xs-3 footerBox1">
+                    <h3><a th:href="@{/visitorNEL/toLeaveWord}" class="leaveIndex">留言板进入留言</a></h3>
+                    <p>&nbsp;</p>
+                    <p>版权所有©河南艾未特网络技术有限公司</p>
+                    <p>备案信息：<a href="#">豫ICP备1111111号</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="backtop"></div>
+        <script type="text/javascript" th:src="@{/static/js/visitor/backtop.js}"></script>
+    </div>
+	<script th:inline="javascript">
+		console.log("12")
+		var today = new Date(); //获得今天时间
+		var todayTime = today.getFullYear() + "年" + today.getMonth() + "月"
+				+ today.getDate() + "日";
+		$('#todayTime').text(todayTime);
+	</script>
+</body>
+</html>

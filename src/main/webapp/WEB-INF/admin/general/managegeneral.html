@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>home</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/static/dist/css/wangEditor.min.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/static/css/admin/managegeneral.css}">	
+	
+<link rel="stylesheet" type="text/css" th:href="@{/static/css/admin/manageschoolintroduction.css}">
+
+</head>
+<body>
+<div class="total">
+<form th:action="@{/general/updateGeneral}" onSubmit="return modifyContent();"
+		method="post" enctype="multipart/form-data">
+		<input type="hidden" name="reId" th:value="${tbResource.reId}">
+		<div  class="inner">
+			<div class="top"><span th:text="${tbResource.reTitle}">标题</span></div>
+			<div class="ziti">
+				<p>发布时间&nbsp;&nbsp;<span th:text="${tbResource.reIssuingdate}">--</span><a th:href="@{/general/deleteGeneral?(id=${tbResource.reId})}" onclick="return confirm('确定要删除吗')">delete</a></p>
+		   </div>
+		 </div>
+		<textarea style="display: none;" name="reContent" id="a"></textarea>
+		<div id="introEditor" 
+			contenteditable="false"></div>
+	</form>
+</div>
+</body>
+<script type="text/javascript">
+function CloseWebPage(){
+ if (navigator.userAgent.indexOf("MSIE") > 0) {
+  if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+   window.opener = null;
+   window.close();
+  } else {
+   window.open('', '_top');
+   window.top.close();
+  }
+ }
+ else if (navigator.userAgent.indexOf("Firefox") > 0) {
+  window.location.href = 'about:blank ';
+ } else {
+  window.opener = null;
+  window.open('', '_self', '');
+  window.close();
+ }
+}
+function doZoom(size)
+{document.getElementById('zoom').style.fontSize=size+'px';}
+</script>
+	<script type="text/javascript"
+		th:src="@{/static/dist/js/lib/jquery-1.10.2.min.js}"></script>
+	<script th:inline="javascript">
+	window.onload=function(){
+		var reContent = [[${tbResource.reContent}]];
+		document.getElementById('introEditor').innerHTML = reContent;
+	}
+	function bian(){
+		$("#introEditor").prop("contenteditable",true);
+	}
+	function modifyContent(){
+		var oA = document.getElementById('a');
+		var oIn = document.getElementById('introEditor');
+		oA.value = oIn.innerHTML;
+	}
+</script>
+</body>
+</html>

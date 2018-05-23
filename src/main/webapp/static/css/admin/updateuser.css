@@ -1,0 +1,121 @@
+body{
+	margin: 0;
+	padding: 0;
+	position: relative; 
+	background: #ebebeb;
+}
+.t1{
+	width: 40%;
+	height:300px;
+	margin-left: 10%;
+	margin-top:5%;
+	float: left;
+}
+.t2{
+	width: 40%;
+	height:300px;
+	margin-top:5%;
+	float: left;
+}
+
+input{
+	width: 60%;
+	height: 30px;
+	border-radius:5px; 
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px; 
+	border:1px solid #ccc;
+}
+img{
+	width: 30%;
+	 cursor:pointer;
+}   
+#sex input{
+	width:30px;
+	height: 15px;
+}
+.aa{
+	width: 55px;
+	margin-left: 55%;
+	background-color: #2470e2;
+	color: white;
+}
+
+.bb{
+	text-align: center;
+}
+#cc{
+	width: 60%;
+	height: 32px;
+	padding-top: 5px;
+}
+ #hidebg{
+ 	position:relative;
+ 	left:0px;
+ 	top:0px;
+    background-color:gray;
+    /*height: 600px;*/
+    width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+    filter:alpha(opacity=60);  /*设置透明度为60%*/
+    opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+    display:none; 
+    z-index:2;
+}
+#hidebox{ 
+ 	position:absolute;
+ 	width:650px;
+ 	height:400px;
+	top:50%;
+	transform:translateX(-50%) translateY(-50%);
+ 	left:50%;
+ 	background:white;
+ 	display:none;
+	cursor:pointer;
+	z-index:10;
+}
+#hidebox1{ 
+ 	position:absolute;
+ 	width:650px;
+ 	height:400px;
+	top:50%;
+	transform:translateX(-50%) translateY(-50%);
+ 	left:50%;
+ 	background:white;
+ 	display:none;
+	cursor:pointer;
+	z-index:10;
+}
+#content{ 
+	text-align:center;
+	cursor:pointer;
+	z-index:1;
+}
+button{
+	width: 50px;
+	height: 30px;
+	background: #012349;
+	border-radius: 4px;
+	color: white;
+	margin-top:1%;
+	margin-left:40%;
+}
+.message{
+	text-align: center;
+	color:red;
+}
+/* #intro{
+	position:absolute;
+	width:700px;
+	height:600px;
+	overflow:hidden;	
+}*/
+#introdEditor,#achieveEditor{
+	height:280px;
+} 
+.minbtn{
+	padding:5px;
+	border-radius:4px;
+	font-size:14px;
+	color:white;
+	background:#2896ef;
+}

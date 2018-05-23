@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>home</title>
+</head>
+<body>
+<a th:href="@{/teacher/uploadJumping}" class="out2"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校园文学的上传</a>
+<div th:each="category,categoryStart:${literatureList}">
+	<a th:href="@{/teacher/manageUpload?(id=${category.caId})}" th:text="${category.caName}" target="ie" class="out2"><span class="glyphicon glyphicon-list-alt"></span></a>
+</div>
+<div th:each="category,categoryStart:${downloadList}">
+	<a th:href="@{/teacher/manageUpload?(id=${category.caId})}" th:text="${category.caName}" target="ie" class="out2"><span class="glyphicon glyphicon-list-alt"></span></a>
+</div>
+</body>
+</html>

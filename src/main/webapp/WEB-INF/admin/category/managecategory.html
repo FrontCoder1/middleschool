@@ -1,0 +1,86 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>home</title>
+<link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.min.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/static/css/admin/manageschoolnews.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/static/css/inquirytable.css}">
+</head>
+<body>
+<div th:text="${message}" class="issucessor"></div>
+<div th:if ="${pagemsg.totalCount}==0" class="issucessor">
+        没有任何信息!
+</div>
+ <div th:if ="${pagemsg.totalCount}!=0">
+<!--模糊查询  -->
+<div class="mainbox">
+<form th:action="@{/category/manageCategory}" method="post" class="inquiry">
+    <input type="text" name="inquiry" class="inquiryinput" required placeholder="类别名称"/>
+    <input type="submit" class="btn btn-default inquirysub" value="查询" title="查询">
+</form>
+		<table class="table table-bordered table-hover table-condensed">
+       		 <thead>
+	            <tr>
+					<th><span>类别编号</span></th>
+					<th><span>类别名称</span></th>
+					<th><span>父类别</span></th>
+					<th><span>操作</span></th>
+				</tr>
+            </thead>
+            <tbody>
+            <tr th:each="category,categoryStart:${pagemsg.lists}">
+				<td th:text="${category.caId}">${category.caId}</td>
+				<td th:text="${category.caName}">${category.caName}</td>
+				<td th:if="${category.caPid}=='1'">学校概括</td>
+				<td th:if="${category.caPid}=='2'">学校新闻</td>
+				<td th:if="${category.caPid}=='3'">教研组</td>
+				<td th:if="${category.caPid}=='4'">用户</td>
+				<td th:if="${category.caPid}=='6'">通知公告</td>
+				<td th:if="${category.caPid}=='7'">校园风光</td>
+				<td th:if="${category.caPid}=='8'">底部链接</td>
+				<td th:if="${category.caPid}=='9'">上传类</td>
+				<td th:if="${category.caPid}=='10'">图片</td>
+				<td th:if="${category.caPid}=='11'">资源下载</td>
+				<td th:if="${category.caPid}=='12'">校园文学</td>
+<!-- 				<td th:if="${category.caPid}=='13'">其他信息</td> -->
+				<td><a
+					th:href="@{/category/selectOneCategory?(id=${category.caId})}"><span class="glyphicon glyphicon-edit" title="修改"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a
+					th:href="@{/category/deleteCategory?(id=${category.caId})}"
+					onclick="return confirm('确定要删除吗')"><span class="glyphicon glyphicon-trash" title="删除"></span></a></td>
+			</tr>
+            </tbody>
+                
+        </table>    
+    
+<ul class="pagination"> 
+   <li th:if ="${pagemsg.currPage != 1}">
+           <a th:href="@{/category/manageCategory?(currentPage=1,inquiry=${inquiry})}">首页</a>&nbsp;&nbsp;
+   </li>
+   <li th:if ="${pagemsg.currPage != 1}">
+           <a th:href="@{/category/manageCategory?(currentPage=${pagemsg.currPage-1},inquiry=${inquiry})}">上一页</a>&nbsp;&nbsp;
+	</li>	
+	<li th:if="${pagemsg.currPage == 1}">
+		<a href="#">首页</a>
+	</li>
+	<li th:if="${pagemsg.currPage == 1}">
+		<a href="#">上一页</a>
+	</li>
+	
+	<li th:each="i:${#numbers.sequence(1,pagemsg.totalPage)}" th:if="${i > pagemsg.currPage-3} and ${i < pagemsg.currPage+3}">
+			<a th:href="@{/category/manageCategory?(currentPage=${i},inquiry=${inquiry})}"th:text="${i}">#</a>
+	</li>
+	
+    <li th:if ="${pagemsg.currPage < pagemsg.totalPage}">
+           <a th:href="@{/category/manageCategory?(currentPage=${pagemsg.currPage+1},inquiry=${inquiry})}">下一页</a>&nbsp;&nbsp;
+	</li>
+	<li th:if="${pagemsg.currPage >= pagemsg.totalPage}">
+		<a href="#">下一页</a>
+	</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

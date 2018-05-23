@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>home</title>
+<link rel="stylesheet" type="text/css" th:href="@{/static/css/admin/addlink.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/static/css/admin/sign.css}">
+</head>
+<body>
+<div th:text="${message}"  class="center"></div>
+	<form th:action="@{/link/addLink}" method="post">
+		<table>
+			<tr>
+				<td width="24%">链接名称</td>
+				<td><input type="text" name="reTitle" required maxlength="15"></td>
+			</tr>
+
+			<tr>
+				<td>链接地址</td>
+				<td><input type="url" name="reContent" required></td>
+			</tr>
+			<tr>
+				<td colspan=
+				"2"><input type="submit" value="提交" class="aa" title="提交"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

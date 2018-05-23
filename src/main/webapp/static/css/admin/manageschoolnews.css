@@ -1,0 +1,57 @@
+body{
+	margin:0;
+	padding: 0;
+	background: #ebebeb;
+}
+.mainContent{
+	width:75%;
+	height: 80%;
+	margin:0 auto;
+}
+table{
+	background: #fff;
+}
+tr{
+	height:50px;
+}
+span{
+	line-height: 30px;
+}
+a{
+	line-height: 30px;
+}
+.pp a:hover{
+	text-decoration: none;
+}
+.add{
+	display:block;
+	width:80px;
+	height:35px;
+	line-height:35px;
+	background: #cccccc;
+	text-align:center;
+	border-radius:4px;
+	color:black;
+	cursor:pointer;
+	font-size:16px;
+	position:absolute;
+	margin-top:20px;
+}
+ body { 
+ 	margin:0px;
+ 	padding:0px;
+ 	text-align: center;
+ }
+.pagination span{
+ 	border:1px solid #f3f3f3;
+ 	border-radius:2px;
+ 	background:white;
+ 	color:black;
+ 	padding:8px 12px;	
+ }
+  .pagination span:hover{
+  	background:#ebebeb;
+  }
+  .col{
+  	  color:red;
+  }

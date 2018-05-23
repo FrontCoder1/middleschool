@@ -1,0 +1,46 @@
+body{
+	margin:0;
+	padding: 0;
+	width:100%;
+	height:100%;
+	background: #ebebeb;
+}
+.aa{
+	width: 500px;
+	margin:0 auto;
+ 	margin-top: 10%; 
+	height:auto;
+}
+.bb{
+	width: 60px;
+	height: 30px;
+	border-radius: 5px;
+	color:white;
+	background:#418bfa;
+	margin-left: 40%;
+}
+.message{
+	text-align: center;
+	color:red;
+	font-size: 16px;
+	margin-top: 20px;
+}
+input#again{
+	width:360px;
+}
+input#oldPsw{
+	width:360px;
+}
+input#password{
+	width:360px;
+}
+#okAgain{
+	padding-top:10px;
+}
+#wrongAgain{
+	padding-top:10px;
+}
+form{
+	margin-top:20%;
+	height: 100%;
+}

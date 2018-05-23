@@ -1,0 +1,41 @@
+body{
+	margin:0;
+	padding: 0;
+	background-color: #eeeeec !important;
+}	 
+.nn{
+	width: 800px;
+	height: 300px;
+	margin: 0 auto;
+/* 	margin-top: 10%; */
+}
+table{
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+}
+.page{
+	background-color: #eeeeec !important;
+}
+td{
+	text-align: center;
+}
+tr{
+	text-align: center !important;
+	height:50px !important;
+	
+}	
+.inquiryinput{
+	margin-left:-100px;
+}
+.cent{
+	text-align:center;
+}
+.issucessor{
+	text-align:center;
+}
+.message{
+	margin: 0 auto;
+	text-align:center;
+	color:red;
+}

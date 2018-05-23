@@ -1,0 +1,80 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.total{
+	width: 100%;
+	height: auto;
+	
+}
+.inner{
+	max-width: 80%;
+	height: 100%;
+	/*background-color: green;*/
+	margin-left: 10%;
+	margin-top:3%;
+}
+.top{
+	width: 100%;
+	height: 60px;
+	/*background-color: red; */
+}
+.top p{
+	text-align: center;
+	font-size: 1.9em;
+}
+.top span{
+	font-size:20px;
+	margin-left:400px;
+}
+button{
+	width:60px;
+	height:30px;
+	background:#2896ef;
+	margin-left:100px;
+}
+#introEditor{
+	padding: 10px;
+	width: 98%;
+	height: 460px;
+	background:white;
+	overflow:scroll;
+	overflow-x: hidden;
+	border: 1px solid #ccc;
+	
+}
+.ziti{
+	left: 32%;
+	height: 40px;
+	text-align: center;
+	margin-top: 10px;
+}
+.ziti a{
+	display:block;
+	width:60px;
+	height:30px;
+	line-height:30px;
+	border-radius:4px;
+	margin-left:700px;
+	padding:2px 4px;
+	margin-top:-25px;
+	background:#2896ef;
+	color:white !important;
+	text-decoration: none;
+	
+}
+.ziti p{
+	margin-left:-150px;
+	margin-top:-20px;
+	color:gray;
+	font-size:16px;
+}
+.ziti button{
+	background: #012349;
+	color: white;
+	cursor: pointer;
+}
+.center{
+	text-align:center;
+	margin:0 auto;
+}

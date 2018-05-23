@@ -1,0 +1,61 @@
+body{
+	margin:0;
+	padding: 0;
+	background-color: #ebebeb !important;
+}
+.content{
+	margin:5% auto;
+	width:33%;
+	text-align: right;
+}
+.message{
+	text-align: center;
+	color:red;
+}
+a{
+	text-decoration: none; 
+}
+table{
+	text-align: center !important;	
+	background-color: white !important;
+}
+th{
+	vertical-align: middle !important;
+	text-align: center !important;	
+	letter-spacing: 10px;
+}
+td{
+	vertical-align: middle !important;
+	text-align: center !important;
+	text-align: center;
+}
+tr{
+	height:50px;
+}
+img{
+	width: 30%;
+} 
+.udpateP{
+	margin-left: 50px;
+	font-size:16px;
+}
+.bb span{
+	line-height: 100px;
+}
+span{
+	font-size: 16px;
+}
+.aa{
+	font-size:14px;
+	width:100px;
+	color:white;
+	background:#2896ef;
+	padding:5px 5px;
+	border-radius:5px;
+}
+
+.aa:hover{
+	text-decoration: none;
+	color:black;
+}
+

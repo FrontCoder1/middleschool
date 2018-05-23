@@ -1,0 +1,41 @@
+body{
+	margin:0;
+	padding: 0;
+	background: #ebebeb;
+}
+*{
+	font-size:18px;
+}
+.aa{
+	width: 500px;
+	height:700px;
+	margin: 0 auto;
+	margin-top: 4%;
+}
+.col{
+	height:60px;
+	background:#c7c7c7;
+}
+table{
+	width:100%;
+	height:100%;
+	background:white!important;
+}
+img{
+	width:200px;
+	height: 130px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+td{
+	text-align: center;
+}
+a{
+	line-height: 120px;
+}
+span{
+	line-height: 50px;
+}
+a:hover{
+	text-decoration: none;
+}

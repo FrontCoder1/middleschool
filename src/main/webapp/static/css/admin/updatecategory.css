@@ -1,0 +1,34 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #ebebeb;
+}
+.lin{
+	width: 30%;
+	height: 150px;
+	margin-left: 35%;
+	margin-top: 10%;
+}
+input{
+	width:280px;
+	height:30px;
+	margin-left:16px;
+	border-radius:5px; 
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px; 
+	border:1px solid #ccc;
+}
+td{ 
+	height: 50px;
+}
+span{
+	font-size:18px;
+}
+.aa{
+	width:60px;
+	height:30px;
+	margin-left: 40%;
+	background:#2896ef;
+	color: white;
+	border-radius: 8px;
+}

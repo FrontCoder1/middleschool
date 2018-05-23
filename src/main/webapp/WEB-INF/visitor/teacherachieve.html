@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1000">
+    <title>郑州一二二中学-教师成果</title>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/static/css/visitor/aboutschool.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/static/css/visitor/schoolnews.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/static/css/visitor/views.css}" type="text/css">
+	<link rel="stylesheet" th:href="@{/static/css/visitor/teacher.css}" type="text/css">
+</head>
+<body>
+<div th:replace="headerfooter :: header"></div> 
+
+<div class="centerImg">
+		<div class="centerimgBox">
+			<div th:if="${teacherPicture!=null}">
+			<img th:src="@{/static/uploadimg/{picture}(picture=${teacherPicture.reContent})}" alt="">
+			<div class="sideLeft"></div>
+			<div class="sideRight"></div>
+		</div>
+		</div>
+	</div>
+
+<div class="mainbox1">
+    <div class="schollabout">
+        <div class="schollleft">
+             <h3>教师风采</h3>
+            <ul class="schoolcenter">
+                <li><a th:href="@{/visitorNEL/viewTeacherIntroActieve?ask=intro}">教师介绍</a></li>
+                <li><a th:href="@{/visitorNEL/viewTeacherIntroActieve?ask=achieve}" class="active1">教师成果</a></li>
+            </ul>
+        </div>
+		<div class="schollright">
+            <div class="location"><a th:href="@{/index}">首页</a>.<a th:href="@{/visitorNEL/viewTeacherIntroActieve?ask=intro}">教师风采</a>.<a th:href="@{/visitorNEL/viewTeacherIntroActieve?ask=achieve}">教师成果</a></div>
+            <div th:if="${userList.totalCount != 0}">
+	            <h3 class="titlesc">教师成果</h3>
+	            <div class="tourcontent">
+	                <div class="teacherbox" th:each="user,userStart:${userList.lists}">
+	                 	<div class="teacherimg">
+	                        <a th:href="@{/visitorNEL/teacherDetail?(usId=${user.usId})}" title="点击查看教师详情">
+	                            <img th:src="@{/static/uploadimg/{picture}(picture=${user.usPicture})}" alt="加载中">
+	                        </a>
+	                    </div>
+	                    <div class="teacherabout">
+	                        <a th:href="@{/visitorNEL/teacherDetail?(usId=${user.usId})}" title="点击查看教师详情">
+	                        	<h3 th:text="${user.usName}">姓名</h3>
+	                        	<p th:name="${user.usAchievements}" class="achieve">教师成果</p>
+	                        </a>
+	                    </div>
+	                </div>
+	                </div>
+	            </div>
+	            <div class="clearfix"></div>
+	             <div class="paging1">
+	                <ul class="pagingUl">
+	                     <li th:if="${userList.currPage-1>0}">
+	                    	<a th:href="@{/visitorNEL/viewTeacherIntroActieve?(currentPage=${userList.currPage-1},ask=achieve)}">&laquo;</a>
+	                    </li>
+	                     <li th:if="${userList.currPage-1==0}">
+	                     <a href="#">&laquo;</a>
+	                     </li>
+	                    <li th:each="i:${#numbers.sequence(1,userList.totalPage)}" th:if="${i > userList.currPage-3} and ${i < userList.currPage+3}" >
+	                    	<a th:href="@{/visitorNEL/viewTeacherIntroActieve?(currentPage=${i},ask=achieve)}" th:text="${i}">#</a>
+	                    </li>
+	                   <li th:if="${userList.currPage+1<=userList.totalPage}">
+	                    	<a th:href="@{/visitorNEL/viewTeacherIntroActieve?(currentPage=${userList.currPage+1},ask=achieve)}">&raquo;</a>
+	                    </li>
+	                    <li th:if="${userList.currPage+1>userList.totalPage}">
+	                     	<a href="#">&raquo;</a>
+	                    </li>
+	                </ul>
+	                <div class="pagingRight">
+	                    <span>跳转到</span>
+	                    <div class="selectBox">
+	                       <span th:text="${userList.currPage}"> <i class="glyphicon glyphicon-chevron-down pull-right" style="line-height: 30px"></i></span>
+	                        <ul class="selectBoxUl">
+	                         	<li th:each="i:${#numbers.sequence(1,userList.totalPage)}">
+	                         		<a href="#" th:onclick="'turnPageUserIntro(this);'" th:id="achieve" th:text="${i}"></a>
+	                         	</li>
+	                        </ul>
+	                    </div>
+	                    <span>页 共<span th:text="${userList.totalPage}"></span>页</span>
+	                </div>
+	            </div>
+	            <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+<div class="clearfix"></div>
+<div th:replace="headerfooter::footer"></div>
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/visitor/select.js}"></script>
+<script >
+	var achieve = $(".achieve");
+	console.log($(achieve[1]).attr("name"));
+	for(var i=0;i<achieve.length;i++){
+		$(achieve[i]).html($(achieve[i]).attr("name"));
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+body {
+	margin: 0;
+	height: 0;
+	background: #efefef;
+}
+
+table {
+	background-color: white;
+}
+.message{
+	color:red;
+	font-size:16px;
+	padding-bottom: 10px;
+    margin: 10px auto;
+    width: 70px;
+}
+a:hover{
+	text-decoration:none;
+}
+.thir{
+	width:100%;
+	height:70px;
+	margin-top:20px;
+}
+.thir a{
+	display:block;
+	width:80px;
+	height:35px;
+	line-height:35px;
+	background: #cccccc;
+	text-align:center;
+	border-radius:4px;
+	color:black;
+	cursor:pointer;
+	font-size:16px;
+	position:absolute;
+	margin-top:20px;
+} 
+.thir a:hover{
+	background:#c3beda;
+}
+th {
+	background: #cccccc;
+}
+
+tr td {
+	vertical-align: middle !important;
+}
+
+.aa {
+	width: 55px;
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 0px !important;
+	padding-bottom:0px!important;
+}
+
+.aa a {
+	text-decoration: none;
+}
+
+.bb {
+	width: 30px; padding : 0 0;
+	margin: 0 0;
+	padding: 0 0;
+}
+
+button {
+	width: 50px;
+	height: 35px;
+	border-radius: 4px;
+	background: #ffff;
+	color: black;
+	
+}
+
+.bb img {
+	width: 80px;
+	height: 40px;
+}
+
+.aa span {
+	line-height: 60px;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+.pagination span {
+	border: 1px solid #f3f3f3;
+	border-radius: 2px;
+	background: white;
+	color: black;
+}
+
+.pagination span:hover {
+	background: #ebebeb;
+}
+
+#hidebg {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-color: gray;
+	width: 100%;
+	filter: alpha(opacity = 60);
+	opacity: 0.6;
+	display: none;
+	z-index: 2;
+}
+
+#hidebox {
+	position: absolute;
+	width: 600px;
+	height: 300px;
+	overflow: scoll;
+	overflow-x: hidden;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 20%;
+	background-color: #fff;
+	display: none;
+	cursor: pointer;
+	z-index: 3;
+}
+
+#content, #content1, #content2, #content3 {
+	text-align: center;
+	cursor: pointer;
+	z-index: 1;
+}
+
+#content input {
+	width: 40px;
+	height: 30px;
+	border-radius: 8px;
+	background: #012349;
+	color: white;
+	transform: translateY(42%);
+}
+
+#content1 input {
+	width: 40px;
+	height: 30px;
+	border-radius: 8px;
+	background: #012349;
+	color: white;
+	transform: translateY(42%);
+}
+
+#content2 input {
+	width: 40px;
+	height: 30px;
+	border-radius: 8px;
+	background: #012349;
+	color: white;
+	transform: translateY(42%);
+}
+
+#content3 input {
+	width: 40px;
+	height: 30px;
+	border-radius: 8px;
+	background: #012349;
+	color: white;
+	transform: translateY(42%);
+}

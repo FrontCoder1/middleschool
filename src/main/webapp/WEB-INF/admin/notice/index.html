@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>home</title>
+</head>
+<body>
+<div th:text="${message}"></div>	
+<details>
+		<summary>通知公告管理</summary>
+		<div th:each="category,categoryStart:${categoryList}">
+				<a th:href="@{/news/manageSchoolNews?(id=${category.caId})}" th:text="${category.caName}"></a>
+		</div>
+		<br>
+</details>
+<iframe name="mainIframe" height="500px;" width="1500px;"></iframe>
+</body>
+</html>
